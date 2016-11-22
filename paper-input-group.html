@@ -32,7 +32,7 @@ Manage a group of paper-inputs
       }
     </style>
 
-    <iron-iconset-svg name="icons" size="24">
+    <iron-iconset-svg name="rbicons" size="24">
       <svg>
         <defs>
           <g id="add"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></g>
@@ -43,17 +43,15 @@ Manage a group of paper-inputs
 
     <label>[[label]]</label>
     <template is="dom-repeat" items="[[values]]">
-      <paper-input value="{{item}}" no-label-float><paper-icon-button on-tap="_delete" suffix class$="delete[[index]]" icon="delete"></paper-icon-button></paper-input>
+      <paper-input value="{{item}}" no-label-float><paper-icon-button on-tap="_delete" suffix class$="delete[[index]]" icon="rbicons:delete"></paper-icon-button></paper-input>
     </template>
-    <paper-icon-button on-tap="_add" class="add" icon="add"></paper-icon-button>
+    <paper-icon-button on-tap="_add" class="add" icon="rbicons:add"></paper-icon-button>
 
   </template>
 
   <script>
     Polymer({
-
       is: 'paper-input-group',
-
       properties: {
         label: {
           type: String,
