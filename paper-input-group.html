@@ -1,0 +1,82 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+
+<!--
+`paper-input-group`
+Manage a group of paper-inputs
+
+@demo demo/index.html
+-->
+
+<dom-module id="paper-input-group">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      paper-icon-button[suffix]{
+        color: var(--delete-color, black);
+        opacity: .7;
+      }
+      paper-icon-button.delete0[suffix]{
+        display: none;
+      }
+      paper-icon-button.add{
+        margin-top: 5px;
+        color: var(--add-color, black);
+      }
+      label{
+        color: var(--primary-text-color, black);
+      }
+    </style>
+
+    <iron-iconset-svg name="icons" size="24">
+      <svg>
+        <defs>
+          <g id="add"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></g>
+          <g id="delete"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></g>
+        </defs>
+      </svg>
+    </iron-iconset-svg>
+
+    <label>[[label]]</label>
+    <template is="dom-repeat" items="[[values]]">
+      <paper-input value="{{item}}" no-label-float><paper-icon-button on-tap="_delete" suffix class$="delete[[index]]" icon="delete"></paper-icon-button></paper-input>
+    </template>
+    <paper-icon-button on-tap="_add" class="add" icon="add"></paper-icon-button>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'paper-input-group',
+
+      properties: {
+        label: {
+          type: String,
+          value: '',
+        },
+        values: {
+          type: Array,
+          nofify: true,
+          value: [""]
+        },
+      },
+
+      _add: function() {
+        this.push('values', [null]);
+      },
+      _delete: function(e){
+        this.splice('values', e.model.__data__.index, 1);
+      },
+      _addOne: function(index){
+        return index + 1;
+      },
+
+
+    });
+  </script>
+</dom-module>
