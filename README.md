@@ -1,5 +1,8 @@
 # \<paper-input-group\>
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/ryanburns23/paper-input-group)
+
+
 `paper-input-group` Manage a group of paper-inputs
 
 Great for gathering list data, inspired by a similar UI in google forms
