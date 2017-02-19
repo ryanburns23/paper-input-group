@@ -10,9 +10,13 @@
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-ajax/iron-ajax.html">
     <link rel="import" href="../paper-input-group.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
+      body{
+        margin-bottom: 30px;
+      }
     </style>
   </head>
   <body>
@@ -24,5 +28,32 @@
         </template>
       </demo-snippet>
     </div>
+
+    <div class="vertical-section-container centered">
+      <h3>Options</h3>
+      <demo-snippet>
+        <template>
+          <paper-input-group label="Choice" prefix="checkbox"></paper-input-group>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="vertical-section-container centered">
+      <h3>External Data</h3>
+      <demo-snippet>
+        <template is="dom-bind">
+          <iron-ajax url="data.json" last-response="{{result}}" auto></iron-ajax>
+
+          <paper-input-group label="Dog" value='{{result}}' prefix="radio"></paper-input-group>
+
+          <ul>
+            <template is="dom-repeat" items="[[result]]">
+              <li>[[item]]</li>
+            </template>
+          </ul>
+        </template>
+      </demo-snippet>
+    </div>
+
   </body>
 </html>
