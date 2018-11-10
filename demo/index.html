@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>paper-input-group demo</title>
+    <title>ps-input-group demo</title>
 
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-ajax/iron-ajax.html">
-    <link rel="import" href="../paper-input-group.html">
+    <link rel="import" href="../../ps-styles/ps-styles.html">
+    <link rel="import" href="../../ps-styles/demo-pages.html">
+
+    <link rel="import" href="../ps-input-group.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
       body{
@@ -21,10 +24,10 @@
   </head>
   <body>
     <div class="vertical-section-container centered">
-      <h3>Basic paper-input-group demo</h3>
+      <h3>Basic ps-input-group demo</h3>
       <demo-snippet>
         <template>
-          <paper-input-group></paper-input-group>
+          <ps-input-group></ps-input-group>
         </template>
       </demo-snippet>
     </div>
@@ -33,7 +36,7 @@
       <h3>Options</h3>
       <demo-snippet>
         <template>
-          <paper-input-group label="Choice" prefix="checkbox"></paper-input-group>
+          <ps-input-group label="Choice" prefix="checkbox"></ps-input-group>
         </template>
       </demo-snippet>
     </div>
@@ -44,7 +47,7 @@
         <template is="dom-bind">
           <iron-ajax url="data.json" last-response="{{result}}" auto></iron-ajax>
 
-          <paper-input-group label="Dog" value='{{result}}' prefix="radio"></paper-input-group>
+          <ps-input-group label="Dog" value='{{result}}' prefix="radio"></ps-input-group>
 
           <ul>
             <template is="dom-repeat" items="[[result]]">
